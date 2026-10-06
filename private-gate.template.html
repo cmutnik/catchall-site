@@ -48,6 +48,8 @@ f.addEventListener("submit", async (e) => {
   try {
     const html = await decrypt(pw.value);
     document.open(); document.write(html); document.close();
+    // Back/forward cache would restore the decrypted page; reload to re-lock it.
+    addEventListener("pageshow", (ev) => { if (ev.persisted) location.reload(); });
   } catch {
     msg.textContent = crypto.subtle ? "Wrong password." : "This page needs HTTPS.";
     go.disabled = false; pw.select();
