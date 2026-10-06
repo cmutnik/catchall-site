@@ -209,6 +209,10 @@
     font-family:var(--mono);font-size:10px;letter-spacing:.16em;
     text-transform:uppercase;color:var(--ink-3);
   }
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;}
+  footer a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule);}
+  footer a:hover{color:var(--ink);}
+  footer a:focus-visible{outline:2px solid var(--cool);outline-offset:3px;}
   .loop-key i{width:11px;height:11px;border:1px solid var(--rule);display:block;}
   .loop-key .open i{border-color:var(--brass);background:rgba(27,83,255,.16);}
   .loop-key .open{color:var(--brass);}
@@ -536,7 +540,7 @@
 </main>
 
 <footer>
-  <div class="wrap">Stealth &middot; 2026</div>
+  <div class="wrap"><span>Stealth &middot; 2026</span><a href="private.html">Private</a></div>
 </footer>
 
 <script>

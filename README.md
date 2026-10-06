@@ -44,3 +44,14 @@ Alternative treatments explored are kept in `variants/`.
 - [ ] Confirm the thesis framing with Alex
 - [ ] Decide the name and register a domain
 - [ ] Move this repo to the venture's GitHub org
+
+## Password-protected page
+
+`private.html` is encrypted (AES-GCM, PBKDF2 key) and decrypted in the browser, so the
+repo can stay public without exposing its content. Write the page in `private-src/index.html`
+(gitignored — keep your own copy), then:
+
+    PAGE_PASSWORD='…' node build-private.mjs
+
+and commit `private.html`. Needs HTTPS (or localhost) to decrypt. It's still offline-guessable,
+so use a long password.

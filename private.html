@@ -1,0 +1,56 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Private</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{--ground:#fbfbfc;--rule:#d3d8de;--ink:#0d1117;--ink-2:#565f6c;--brass:#1b53ff;
+    --sans:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;}
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--ground);color:var(--ink);
+    font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+  form{width:min(360px,100% - 56px)}
+  .eyebrow{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
+  .row{display:flex;gap:8px}
+  input{flex:1;min-width:0;font:inherit;padding:10px 12px;border:1px solid var(--rule);border-radius:4px;background:#fff;color:var(--ink)}
+  input:focus{outline:2px solid var(--brass);outline-offset:-1px;border-color:transparent}
+  button{font:500 15px var(--sans);padding:10px 16px;border:0;border-radius:4px;background:var(--ink);color:#fff;cursor:pointer}
+  button:disabled{opacity:.5;cursor:default}
+  #msg{min-height:1.6em;margin:10px 0 0;font-size:14px;color:var(--ink-2)}
+</style>
+<form id="f">
+  <div class="eyebrow">Private</div>
+  <div class="row">
+    <input id="pw" type="password" placeholder="Password" autocomplete="current-password" autofocus required aria-label="Password">
+    <button id="go">Enter</button>
+  </div>
+  <p id="msg" role="status"></p>
+</form>
+<script>
+const P = {"salt":"FyYNC8VGHurb2mBZ5BOvRg==","iv":"hoLwLRvclk5v0g4V","ct":"6gufCi1h7lnzIrl4XXsgaxDA1B1+c+yVMUPq5pft2P1SAIlr6pAYnagGUfGYZT1+0a6S5vfi8tbetxS8aVIZVAlq6GZif0QWBkcE0CggoM6zzmlxB6xDrcBuDqmPe9TTrYB861CBPdmyGTMGbS3HRHHA8XxSA2BP10rS1a/o7JNe9IAZ9Hb32hsN2aDK/jvF4uoLseaTd9npprayPGz0VeL7wJOLxQbWTl2UKF7jS/8nUCZNcyjR8KpGhFzNUBxMc0Mtvhn67R9Yg3qj8V9Whdt3Bp2KS5ikkJxzNtNdqYrxft5yrBsYRuz1yTqw+rzenYxipJoAX/P/V1H/Q07d4wsc58SHApbyNpyD7x2tVqSwb6pk81wbXGkiQrwNt8H5Nwl/8Ltznl5lVIeeiUutpntLUSF4chwF7+C9cuIX5A+4N6A3Euc4DMwOr/yRNNoeTRDcAcOap1fjXmvorKYs7Mn2pJyLAPhTa7uwbzWqZZ8aQQ6AEneaz194+htSEu3qh0Y/2VgbL4qLY6ULZdXr7xoPguqPeACe7V77zPvlnFjDG0+WqStNDdhzsF+R6ek5kNif3/huC/rq6W5oJcEFU48/RgV6q+i5H7NGf4MaEgd/dvplqbqzIOgwPvvAQ9SMoxujcWcUzJ9lv76iPDUmUg6JuEMDKAa9MrBApV0ycrG2wA9ezGcvNlM3HKJsDTQC7OMBqSaG55lQ6Ob4vNLIOxJ0ZcVKjzLRowyALAU7sghtQurA83mkiM1DPGN0dIjP2FaVEz+XmoxzEqQuMk05DTZD0RIrY+wS4nDbZatbjf/kQwl+/gaL2pgTGcme88CPA8lKaZcmm49nLQVtTJY433lIo9D+DkwW+w2KL3ubYDaFf/QWniRkYwiG4YDu20s2iN8XAlqtqr1cOXvgnScrUee8qdViyCiaZHaqfqcCtUzuE/t1yrXElyvirOsCGPZXtX6ZumNrjEcJYBuDOKk2x45sH9X4IZ62GiJrlL+MMuzf+tSYPr7N6V0vI3/2vfw/8WscTKiO/cOSQaylgy3WJ6CUqKMkZ4zvwLpC5/nR6OhMRYQjTtM0Qw5ePagMoQwnAIh+1izmvTSOPTW/qdiUq5cCPWcXpZmgVyipZx1y6EFPF7Ip5sL71ws1stbRN956gHRl3EZ8sAo2BxqiLoCzwtm2W0hxErScQrEP8qAlKBPttV9q+bcRNUmSR3Yivl6Q6eNriYuOUaU+gTcuGhmQCiReTR4MSRr7uBWHRo3+Rjs1JZvn89RQr6sZBqQdGnu198/C8EcEAOyKUQn8M7RT8hUgx8MVAjU3ZFMliwZUQ77in0iCTgNJxn05GunaN6wUL9qF1LMyL8CfZj/f8obwDEGOjZJu4kXF7nicceDngBa2jRkREBaLojcy8hxj0omwUZ6IL2OFIMOLVBGh74m7hVeEyI38d8jgCoUI4qU/Q11wxueG3lGw7grcqHAtlBU2LIn1zPffMnkjW/Tv1QGVvHwmSBmz1hdt3Q1+9g8Ku/50GA7q0ybZfbsSCM7qK5tEBBzScWHw540ZWoJ9tyhhjILHUFxV6OTwkg9RSX1pjP2nRLCMQvpv3+44gacnYcL4nxyWJWA2fAoYhza61K0usKBFxxTHThd/CqTsZdGnO1b1uhPGAuHlCqZkql6NsBeS1IUp1Doq+fsPTEel9Nip0oyUudcyATomOqgKthKTc7z5apKfCGjXAG3Q+QcbNXiSBs4=","iter":600000};
+const unb64 = (s) => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const f = document.getElementById("f"), pw = document.getElementById("pw"),
+      go = document.getElementById("go"), msg = document.getElementById("msg");
+
+async function decrypt(password){
+  const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveKey"]);
+  const key = await crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt: unb64(P.salt), iterations: P.iter, hash: "SHA-256" }, base,
+    { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+  const buf = await crypto.subtle.decrypt({ name: "AES-GCM", iv: unb64(P.iv) }, key, unb64(P.ct));
+  return new TextDecoder().decode(buf);
+}
+
+f.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  go.disabled = true; msg.textContent = "Unlocking…";
+  try {
+    const html = await decrypt(pw.value);
+    document.open(); document.write(html); document.close();
+  } catch {
+    msg.textContent = crypto.subtle ? "Wrong password." : "This page needs HTTPS.";
+    go.disabled = false; pw.select();
+  }
+});
+</script>

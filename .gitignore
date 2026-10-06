@@ -1,2 +1,5 @@
 .DS_Store
 node_modules/
+
+# Plaintext source for the password-protected page
+private-src/
