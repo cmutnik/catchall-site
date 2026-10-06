@@ -1,5 +1,7 @@
 # Stealth page
 
+[![Demo](https://img.shields.io/badge/Website-live-green)](https://cmutnik.github.io/catchall-site/)
+
 Single-page static site. No build step, no dependencies — open `index.html`.
 
 ## What it is
@@ -50,8 +52,8 @@ Alternative treatments explored are kept in `variants/`.
 `private.html` is encrypted (AES-GCM, PBKDF2 key) and decrypted in the browser, so the
 repo can stay public without exposing its content. Write the page in `private-src/index.html`
 (gitignored — keep your own copy), then:
-
+```sh
     PAGE_PASSWORD='…' node build-private.mjs
-
+```
 and commit `private.html`. Needs HTTPS (or localhost) to decrypt. It's still offline-guessable,
 so use a long password.
